@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -14,14 +14,14 @@ import { AppState } from '../../store/models/state.model';
 })
 export class ProductsComponent implements OnInit {
 
-  productForm: any = FormGroup;
+  productForm: any = UntypedFormGroup;
 
   // observable that is holding the products data coming from store and continously listening to the store changes
   productItems$: Observable<Array<ProductItem>> | any;
 
   constructor(
     private store: Store<AppState>,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
   ) {}
 
   ngOnInit(): void {
